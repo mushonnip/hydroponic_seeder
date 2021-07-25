@@ -31,6 +31,7 @@ void setup()
   myservo.write(0);
 
   digitalWrite(dirPin, HIGH);
+  digitalWrite(relayPin, HIGH);
 }
 void loop()
 {
@@ -45,12 +46,12 @@ void loop()
     {
       if (i >= 18)
       {
-        for (int x = 0; x < 8000; x++)
+        for (int x = 0; x < 10000; x++)
         {
           digitalWrite(stepPin, HIGH);
-          delayMicroseconds(200);
+          delayMicroseconds(100);
           digitalWrite(stepPin, LOW);
-          delayMicroseconds(200);
+          delayMicroseconds(100);
         }
       }
       else
@@ -76,8 +77,8 @@ void loop()
           myservo.write(pos); // tell servo to go to position in variable 'pos'
           delay(15);          // waits 15ms for the servo to reach the position
         }
-        delay(1000);
         digitalWrite(relayPin, HIGH);
+        delay(1000);
       }
     }
   }
